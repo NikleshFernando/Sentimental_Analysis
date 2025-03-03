@@ -1,4 +1,4 @@
-import yt_dlp
+import youtube_dl as ty_dlp
 
 ydl = yt_dlp.YoutubeDL()
 

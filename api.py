@@ -66,10 +66,11 @@ def save_transcript(audio_url, filename, sentiment_analysis=False):
         with open(text_filename, "w") as f:
             f.write(data['text'])
 
-        if sentiment_analysis and 'sentiment_analysis_results' in data:
+        if sentiment_analysis:
             sentiment_filename = filename + "_sentiments.json"
             with open(sentiment_filename, "w") as f:
-                json.dump(data['sentiment_analysis_results'], f, indent=4)  # Fixed key
+                sentiments = data["sentiment_analysis_results"]
+                json.dump(sentiments, f, indent=4)  # Fixed key
 
         print("Transcription Saved!!!")
     else:
